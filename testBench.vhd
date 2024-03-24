@@ -61,42 +61,42 @@ begin
     begin
         wait for CLK_PERIOD / 2;
         -- Test Case 1
-        -- regWrite_tb <= '1';
-        -- writeReg_tb <= "00001";
-        -- writeData_tb <= std_logic_vector(to_unsigned(6, writeData_tb'length));
-        -- wait for CLK_PERIOD / 2;
-        -- regWrite_tb <= '0';
-        -- readReg1_tb <= "00001";
-        -- wait for CLK_PERIOD / 2;
-        -- assert readData1_tb = std_logic_vector(to_unsigned(6, readData1_tb'length))
-        --     report "Test Case 1 Failed" severity error;
-        --     wait;
+        regWrite_tb <= '1';
+        writeReg_tb <= "00001";
+        writeData_tb <= std_logic_vector(to_unsigned(6, writeData_tb'length));
+        wait for CLK_PERIOD / 2;
+        regWrite_tb <= '0';
+        readReg1_tb <= "00001";
+        wait for CLK_PERIOD / 2;
+        assert readData1_tb = std_logic_vector(to_unsigned(6, readData1_tb'length))
+            report "Test Case 1 Failed" severity error;
+            wait;
 
         -- Test Case 2: Write to register 1, Write to register 2, Read from register 1, Read from register 2
 
         -- Write to register 1
-        -- regWrite_tb <= '1';
-        -- writeReg_tb <= "00001";
-        -- writeData_tb <= std_logic_vector(to_unsigned(6, writeData_tb'length));
-        -- wait for CLK_PERIOD;
-        -- writeReg_tb <= "00010";
-        -- writeData_tb <= std_logic_vector(to_unsigned(7, writeData_tb'length));
-        -- wait for CLK_PERIOD / 2;
-        -- regWrite_tb <= '0';
-        -- readReg1_tb <= "00001";
-        -- readReg2_tb <= "00010";
-        -- wait for CLK_PERIOD / 2;
-        -- assert readData1_tb = std_logic_vector(to_unsigned(6, readData1_tb'length))
-        --     report "Test Case 2 Failed: Read data from register 1 doesn't match" severity error;
-        -- assert readData2_tb = std_logic_vector(to_unsigned(7, readData2_tb'length))
-        --     report "Test Case 2 Failed: Read data from register 2 doesn't match" severity error;
+        regWrite_tb <= '1';
+        writeReg_tb <= "00001";
+        writeData_tb <= std_logic_vector(to_unsigned(6, writeData_tb'length));
+        wait for CLK_PERIOD;
+        writeReg_tb <= "00010";
+        writeData_tb <= std_logic_vector(to_unsigned(7, writeData_tb'length));
+        wait for CLK_PERIOD / 2;
+        regWrite_tb <= '0';
+        readReg1_tb <= "00001";
+        readReg2_tb <= "00010";
+        wait for CLK_PERIOD / 2;
+        assert readData1_tb = std_logic_vector(to_unsigned(6, readData1_tb'length))
+            report "Test Case 2 Failed: Read data from register 1 doesn't match" severity error;
+        assert readData2_tb = std_logic_vector(to_unsigned(7, readData2_tb'length))
+            report "Test Case 2 Failed: Read data from register 2 doesn't match" severity error;
 
         -- Test Case 3: 
-        -- writeReg_tb <= "00001";
-        -- writeData_tb <= std_logic_vector(to_unsigned(6, writeData_tb'length));
-        -- wait for CLK_PERIOD / 2;
-        -- assert readData1_tb = std_logic_vector(to_unsigned(0, readData1_tb'length))
-        --     report "Test Case 3 Failed: Read data from register 1 doesn't match" severity error;
+        writeReg_tb <= "00001";
+        writeData_tb <= std_logic_vector(to_unsigned(6, writeData_tb'length));
+        wait for CLK_PERIOD / 2;
+        assert readData1_tb = std_logic_vector(to_unsigned(0, readData1_tb'length))
+            report "Test Case 3 Failed: Read data from register 1 doesn't match" severity error;
 
         -- Test Case 4:
         regWrite_tb <= '1';
